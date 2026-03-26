@@ -10,7 +10,7 @@ export default function AktuResultsPage() {
         </p>
       </div>
       <iframe
-        src="https://docs.google.com/gview?url=https://shreypandey.tech/aktu-results.pdf&embedded=true"
+        src="https://docs.google.com/gview?url=https://shreypandey.tech/assets/aktu-results.pdf&embedded=true"
         className="w-full h-[800px] md:h-screen rounded-lg border border-zinc-700 overflow-hidden"
       />
     </section>
