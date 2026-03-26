@@ -1,35 +1,29 @@
 "use client";
 
-import ScrollReveal from "../../components/ScrollReveal";
-
-export default function ResumePage() {
+export default function AktuResultsPage() {
   return (
     <section className="space-y-6">
-      <ScrollReveal>
       <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
-        <h1 className="font-mono text-2xl text-cyan-300">Resume</h1>
+        <h1 className="font-mono text-2xl text-cyan-300">AKTU Results</h1>
         <p className="mt-3 text-zinc-300">
-          Protected in-browser view of the latest resume document.
+          Protected in-browser academic results viewer.
         </p>
       </div>
-      </ScrollReveal>
-      <ScrollReveal>
       <div
         className="w-full h-[80vh] border border-gray-800 rounded-lg overflow-hidden bg-white"
         onContextMenu={(e) => e.preventDefault()}
       >
         <object
-          data="/assets/resume.pdf#toolbar=0&navpanes=0"
+          data="/assets/aktu-results.pdf#toolbar=0&navpanes=0"
           type="application/pdf"
           className="w-full h-full"
         >
           <p>
             Your browser does not support PDFs.{" "}
-            <a href="/assets/resume.pdf">Download the PDF</a>.
+            <a href="/assets/aktu-results.pdf">Download the PDF</a>.
           </p>
         </object>
       </div>
-      </ScrollReveal>
     </section>
   );
 }

@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import BootSequence from "../components/BootSequence";
+import CustomCursor from "../components/CustomCursor";
+import ParticleBackground from "../components/ParticleBackground";
+import PervasiveGlow from "../components/PervasiveGlow";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -24,6 +28,7 @@ const navLinks = [
   { href: "/logs", label: "Logs" },
   { href: "/credentials", label: "Credentials" },
   { href: "/resume", label: "Resume" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function RootLayout({
@@ -36,8 +41,12 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-zinc-950 text-zinc-100">
-        <div className="min-h-screen">
+      <body className="relative min-h-full bg-zinc-950 text-zinc-100">
+        <BootSequence />
+        <ParticleBackground />
+        <PervasiveGlow />
+        <CustomCursor />
+        <div className="relative z-10 min-h-screen">
           <header className="sticky top-0 z-50 border-b border-zinc-800/80 bg-zinc-950/85 backdrop-blur">
             <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
               <Link
