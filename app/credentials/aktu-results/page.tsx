@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function AktuResultsPage() {
   return (
     <section className="space-y-6">
@@ -10,19 +12,17 @@ export default function AktuResultsPage() {
         </p>
       </div>
       <div
-        className="w-full h-[80vh] border border-gray-800 rounded-lg overflow-hidden bg-white"
+        className="relative w-full h-[80vh] border border-gray-800 rounded-lg overflow-hidden bg-zinc-950"
         onContextMenu={(e) => e.preventDefault()}
       >
-        <object
-          data="/assets/aktu-results.pdf#toolbar=0&navpanes=0"
-          type="application/pdf"
-          className="w-full h-full"
-        >
-          <p>
-            Your browser does not support PDFs.{" "}
-            <a href="/assets/aktu-results.pdf">Download the PDF</a>.
-          </p>
-        </object>
+        <Image
+          src="/assets/aktu-results.jpg"
+          alt="AKTU Results"
+          fill
+          className="object-contain"
+          draggable={false}
+        />
+        <div className="absolute inset-0 z-10 bg-transparent" />
       </div>
     </section>
   );

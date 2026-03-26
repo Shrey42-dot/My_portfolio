@@ -15,8 +15,6 @@ export default function ProtectedAssetViewer({
   className,
   heightClassName = "h-64",
 }: ProtectedAssetViewerProps) {
-  const isPdf = src.toLowerCase().endsWith(".pdf");
-
   return (
     <div
       onContextMenu={(e) => e.preventDefault()}
@@ -26,28 +24,15 @@ export default function ProtectedAssetViewer({
       <div
         className={`relative overflow-y-scroll rounded-lg border border-zinc-800 bg-black/40 ${heightClassName}`}
       >
-        {isPdf ? (
-          <>
-            <iframe
-              src={`${src}#toolbar=0&navpanes=0&scrollbar=0`}
-              title={title}
-              className="h-full w-full"
-            />
-            <div className="absolute inset-0 z-10 bg-transparent" />
-          </>
-        ) : (
-          <>
-            <Image
-              src={src}
-              alt={title}
-              width={1200}
-              height={800}
-              className="h-full w-full object-contain"
-              draggable={false}
-            />
-            <div className="absolute inset-0 z-10 bg-transparent" />
-          </>
-        )}
+        <Image
+          src={src}
+          alt={title}
+          width={1200}
+          height={800}
+          className="h-full w-full object-contain"
+          draggable={false}
+        />
+        <div className="absolute inset-0 z-10 bg-transparent" />
       </div>
     </div>
   );

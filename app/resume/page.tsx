@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import ScrollReveal from "../../components/ScrollReveal";
 
 export default function ResumePage() {
@@ -15,19 +16,17 @@ export default function ResumePage() {
       </ScrollReveal>
       <ScrollReveal>
       <div
-        className="w-full h-[80vh] border border-gray-800 rounded-lg overflow-hidden bg-white"
+        className="relative w-full h-[80vh] border border-gray-800 rounded-lg overflow-hidden bg-zinc-950"
         onContextMenu={(e) => e.preventDefault()}
       >
-        <object
-          data="/assets/resume.pdf#toolbar=0&navpanes=0"
-          type="application/pdf"
-          className="w-full h-full"
-        >
-          <p>
-            Your browser does not support PDFs.{" "}
-            <a href="/assets/resume.pdf">Download the PDF</a>.
-          </p>
-        </object>
+        <Image
+          src="/assets/resume.jpg"
+          alt="Resume"
+          fill
+          className="object-contain"
+          draggable={false}
+        />
+        <div className="absolute inset-0 z-10 bg-transparent" />
       </div>
       </ScrollReveal>
     </section>

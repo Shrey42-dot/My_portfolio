@@ -31,24 +31,24 @@ const credentials = [
   {
     category: "NPTEL",
     items: [
-      { title: "Joy of Computing using Python", src: "/assets/nptel-python.pdf" },
-      { title: "Data Analytics", src: "/assets/nptel-data-analytics.pdf" },
-      { title: "Intro to IoT", src: "/assets/nptel-iot.pdf" },
+      { title: "Joy of Computing using Python", src: "/assets/nptel-python.jpg" },
+      { title: "Data Analytics", src: "/assets/nptel-data-analytics.jpg" },
+      { title: "Intro to IoT", src: "/assets/nptel-iot.jpg" },
     ],
   },
   {
     category: "Infosys",
     items: [
-      { title: "Cyber Security", src: "/assets/infosys-cyber-sec.pdf" },
-      { title: "Fundamentals of ML", src: "/assets/infosys-ml.pdf" },
+      { title: "Cyber Security", src: "/assets/infosys-cyber-sec.jpg" },
+      { title: "Fundamentals of ML", src: "/assets/infosys-ml_page.jpg" },
     ],
   },
   {
     category: "Other Achievements",
     items: [
       { title: "ISRO Hackathon", src: "/assets/isro-hackathon.png" },
-      { title: "PyNetLabs Azure AI", src: "/assets/pynet-azure.pdf" },
-      { title: "GeeksforGeeks MongoDB", src: "/assets/gfg-mongodb.pdf" },
+      { title: "PyNetLabs Azure AI", src: "/assets/pynet-azure.jpg" },
+      { title: "GeeksforGeeks MongoDB", src: "/assets/gfg-mongodb.jpg" },
     ],
   },
 ];
@@ -113,7 +113,7 @@ export default function CredentialsPage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedCert(null)}
-            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 p-4 md:backdrop-blur-sm"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8, y: 50 }}
@@ -130,27 +130,14 @@ export default function CredentialsPage() {
                 ✕
               </button>
               <div className="relative h-[80vh] w-[80vw] max-w-5xl">
-                {selectedCert.toLowerCase().endsWith(".pdf") ? (
-                  <>
-                    <iframe
-                      src={`${selectedCert}#toolbar=0&navpanes=0&scrollbar=0`}
-                      className="pointer-events-none h-full w-full select-none"
-                    />
-                    <div 
-                      className="absolute inset-0 z-10 bg-transparent" 
-                      onContextMenu={(e) => e.preventDefault()} 
-                    />
-                  </>
-                ) : (
-                  <Image
-                    src={selectedCert}
-                    alt="Certificate Enlarge"
-                    fill
-                    className="pointer-events-none select-none object-contain"
-                    onContextMenu={(e) => e.preventDefault()}
-                    draggable={false}
-                  />
-                )}
+                <Image
+                  src={selectedCert}
+                  alt="Certificate Enlarge"
+                  fill
+                  className="pointer-events-none select-none object-contain"
+                  onContextMenu={(e) => e.preventDefault()}
+                  draggable={false}
+                />
               </div>
             </motion.div>
           </motion.div>
