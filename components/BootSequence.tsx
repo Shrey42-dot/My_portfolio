@@ -30,6 +30,9 @@ export default function BootSequence() {
     sessionStorage.setItem("hasBooted", "true");
 
     let currentLine = 0;
+    let timeout1: NodeJS.Timeout;
+    let timeout2: NodeJS.Timeout;
+
     const interval = setInterval(() => {
       if (currentLine < BOOT_LINES.length) {
         setLines((prev) => [...prev, BOOT_LINES[currentLine]]);
@@ -38,14 +41,18 @@ export default function BootSequence() {
 
       if (currentLine >= BOOT_LINES.length) {
         clearInterval(interval);
-        setTimeout(() => {
+        timeout1 = setTimeout(() => {
           setIsBooting(false);
-          setTimeout(() => setIsRendered(false), 500); // 500ms animation exit duration
+          timeout2 = setTimeout(() => setIsRendered(false), 500); // 500ms animation exit duration
         }, 400);
       }
     }, 200);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout1);
+      clearTimeout(timeout2);
+    };
   }, []);
 
   if (!isRendered) return null;

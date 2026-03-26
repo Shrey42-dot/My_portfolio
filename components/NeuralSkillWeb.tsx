@@ -93,7 +93,7 @@ export default function NeuralSkillWeb() {
       ref={containerRef}
       className="relative w-full rounded-2xl border border-zinc-800 bg-zinc-900/40 p-1 shadow-[0_0_30px_-30px_rgba(34,211,238,0.8)] overflow-hidden h-[600px]"
     >
-      <div className="absolute top-5 left-6 z-10 pointer-events-none">
+      <div className="absolute top-5 left-6 right-6 z-10 pointer-events-none">
         <h2 className="font-mono text-xl text-cyan-300">Neural Skill Web</h2>
         <p className="text-xs text-zinc-400 mt-1 font-mono">
           Interactive Node Web — Scroll to Zoom — Drag to Pan/Move
